@@ -1,6 +1,19 @@
+<p align="center">
+  <img src="assets/hero.svg" alt="ICS Calendar Viewer" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/viggomeesters/obsidian-ics-calendar-viewer/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/viggomeesters/obsidian-ics-calendar-viewer?style=flat-square"></a>
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-green?style=flat-square"></a>
+  <img alt="Minimum app version 1.5.0+" src="https://img.shields.io/badge/minimum-1.5.0%2B-2563eb?style=flat-square">
+  <img alt="Read-only" src="https://img.shields.io/badge/mode-read--only-334155?style=flat-square">
+</p>
+
 # ICS Calendar Viewer
 
 ICS Calendar Viewer is a read-only Obsidian viewer for local `.ics` files. It opens calendar files as an inspection surface with component summaries, grouped event lists, filters, event details, recurrence and timezone warnings, and a raw source fallback.
+
+![ICS Calendar Viewer preview](assets/screenshot.svg)
 
 ## Scope
 

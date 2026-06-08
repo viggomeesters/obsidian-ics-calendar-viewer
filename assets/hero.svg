@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="420" viewBox="0 0 1400 420" role="img" aria-labelledby="title desc">
+  <title id="title">ICS Calendar Viewer</title>
+  <desc id="desc">A read-only local calendar file viewer with events, filters, and source fallback.</desc>
+  <rect width="1400" height="420" fill="#f8fafc"/>
+  <rect x="48" y="48" width="1304" height="324" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="48" y="48" width="1304" height="54" rx="18" fill="#eff6ff"/>
+  <rect x="48" y="82" width="1304" height="20" fill="#eff6ff"/>
+  <circle cx="84" cy="75" r="8" fill="#ef4444"/>
+  <circle cx="112" cy="75" r="8" fill="#f59e0b"/>
+  <circle cx="140" cy="75" r="8" fill="#22c55e"/>
+  <text x="86" y="162" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="800">ICS Calendar Viewer</text>
+  <text x="88" y="204" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="20">Read-only event inspection for local .ics files</text>
+  <g transform="translate(88 246)">
+    <rect width="104" height="34" rx="8" fill="#2563eb"/>
+    <text x="22" y="23" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Events</text>
+    <rect x="116" width="112" height="34" rx="8" fill="#e2e8f0"/>
+    <text x="138" y="23" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Source</text>
+    <rect x="240" width="168" height="34" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="262" y="23" fill="#92400e" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Timezone hints</text>
+  </g>
+  <g transform="translate(742 112)">
+    <rect width="534" height="240" rx="14" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect x="22" y="24" width="490" height="42" rx="9" fill="#dbeafe"/>
+    <text x="42" y="51" fill="#1e3a8a" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">June 8, 2026</text>
+    <rect x="22" y="88" width="490" height="54" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="44" y="120" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">09:30 Planning sync</text>
+    <text x="348" y="120" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="14">Europe/Amsterdam</text>
+    <rect x="22" y="160" width="490" height="54" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="44" y="192" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">14:00 Review window</text>
+    <text x="366" y="192" fill="#b45309" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">RRULE</text>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">ICS Calendar Viewer preview</title>
+  <desc id="desc">Preview of an events list, filters, detail pane, and raw source fallback.</desc>
+  <rect width="1200" height="720" fill="#f8fafc"/>
+  <rect x="48" y="48" width="1104" height="624" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="78" y="82" width="1044" height="54" rx="12" fill="#eff6ff"/>
+  <text x="104" y="116" fill="#1e3a8a" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">ICS Calendar Viewer</text>
+  <rect x="78" y="166" width="320" height="452" rx="14" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="430" y="166" width="692" height="452" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="104" y="214" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">EVENTS</text>
+  <rect x="104" y="238" width="268" height="64" rx="10" fill="#dbeafe"/>
+  <text x="128" y="265" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Planning sync</text>
+  <text x="128" y="288" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="13">09:30 - 10:00</text>
+  <rect x="104" y="322" width="268" height="64" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="128" y="349" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Review window</text>
+  <text x="128" y="372" fill="#b45309" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Recurring event</text>
+  <text x="464" y="222" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900">Planning sync</text>
+  <text x="464" y="260" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="17">Europe/Amsterdam - local file</text>
+  <line x1="464" y1="292" x2="1088" y2="292" stroke="#cbd5e1"/>
+  <text x="464" y="340" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">UID</text>
+  <text x="560" y="340" fill="#0f172a" font-family="Menlo, Consolas, monospace" font-size="14">event-001@example</text>
+  <text x="464" y="386" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">SOURCE</text>
+  <rect x="464" y="410" width="624" height="150" rx="12" fill="#0f172a"/>
+  <text x="490" y="448" fill="#93c5fd" font-family="Menlo, Consolas, monospace" font-size="15">BEGIN:VEVENT</text>
+  <text x="490" y="482" fill="#e2e8f0" font-family="Menlo, Consolas, monospace" font-size="15">SUMMARY:Planning sync</text>
+  <text x="490" y="516" fill="#e2e8f0" font-family="Menlo, Consolas, monospace" font-size="15">DTSTART;TZID=Europe/Amsterdam:20260608T093000</text>
+</svg>
