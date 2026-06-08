@@ -1,10 +1,14 @@
 name: Release
 
 on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release tag/version to publish"
+        required: true
   push:
     tags:
-      - "v*"
-      - "[0-9]*.[0-9]*.[0-9]*"
+      - "*"
 
 permissions:
   contents: write
@@ -19,6 +23,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.version || github.ref }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -40,7 +46,9 @@ jobs:
 
       - name: Check manifest
         run: |
-          node -e "const m=require('./manifest.json'); if (m.id !== 'ics-calendar-viewer') throw new Error(m.id); if (/obsidian/i.test(m.description)) throw new Error(m.description); if (m.version !== process.env.GITHUB_REF_NAME.replace(/^v/, '')) throw new Error(`${m.version} !== ${process.env.GITHUB_REF_NAME}`)"
+          node -e "const m=require('./manifest.json'); const version=process.env.RELEASE_VERSION.replace(/^v/, ''); if (m.id !== 'ics-calendar-viewer') throw new Error(m.id); if (/obsidian/i.test(m.description)) throw new Error(m.description); if (m.version !== version) throw new Error(`${m.version} !== ${version}`)"
+        env:
+          RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
 
       - name: Check forbidden runtime patterns
         run: |
@@ -51,20 +59,23 @@ jobs:
       - name: Create release notes
         run: |
           {
-            echo "Release ${GITHUB_REF_NAME}"
+            echo "Release ${RELEASE_VERSION}"
             echo
             echo "- Adds the MIT LICENSE file."
             echo "- Fixes source warnings for ICS component typing."
             echo "- Replaces CSS display: contents for older Obsidian compatibility."
             echo "- Publishes runtime assets with GitHub artifact attestations."
           } > release-notes.md
+        env:
+          RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
 
       - name: Create GitHub release
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" main.js manifest.json styles.css \
-            --title "${GITHUB_REF_NAME}" \
+          gh release create "${RELEASE_VERSION}" main.js manifest.json styles.css \
+            --title "${RELEASE_VERSION}" \
             --notes-file release-notes.md \
             --verify-tag
 

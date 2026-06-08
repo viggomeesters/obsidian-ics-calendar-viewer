@@ -1,6 +1,6 @@
 {
   "name": "obsidian-ics-calendar-viewer",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Read-only local .ics calendar file inspection viewer.",
   "license": "MIT",
   "author": "Viggo Meesters",

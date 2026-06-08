@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Added manual release workflow dispatch fallback for GitHub artifact attestations.
+
 ## 0.1.3
 
 - Reissued the review-fix release after adding the GitHub Actions release workflow.
