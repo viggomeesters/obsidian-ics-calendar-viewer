@@ -3,6 +3,7 @@ import {
   Plugin,
   TFile,
   TextFileView,
+  ViewStateResult,
   WorkspaceLeaf,
   setIcon,
 } from "obsidian";
@@ -22,6 +23,15 @@ const ICS_EXTENSIONS = ["ics"];
 
 type ViewMode = "events" | "source";
 type GroupMode = "date" | "type";
+
+interface IcsCalendarViewerState {
+  file?: string;
+  mode?: ViewMode;
+  groupMode?: GroupMode;
+  query?: string;
+  startDate?: string;
+  endDate?: string;
+}
 
 export default class IcsCalendarViewerPlugin extends Plugin {
   async onload(): Promise<void> {
@@ -78,6 +88,29 @@ class IcsCalendarViewerView extends TextFileView {
 
   getIcon(): string {
     return "calendar-days";
+  }
+
+  getState(): Record<string, unknown> {
+    return {
+      ...super.getState(),
+      mode: this.mode,
+      groupMode: this.groupMode,
+      query: this.query,
+      startDate: this.startDate,
+      endDate: this.endDate,
+    };
+  }
+
+  async setState(state: unknown, result: ViewStateResult): Promise<void> {
+    await super.setState(state, result);
+    if (isViewerState(state)) {
+      if (state.mode) this.mode = state.mode;
+      if (state.groupMode) this.groupMode = state.groupMode;
+      if (typeof state.query === "string") this.query = state.query;
+      if (typeof state.startDate === "string") this.startDate = state.startDate;
+      if (typeof state.endDate === "string") this.endDate = state.endDate;
+    }
+    this.render();
   }
 
   setViewData(data: string): void {
@@ -407,6 +440,16 @@ function createDateInput(parent: HTMLElement, label: string, value: string): HTM
 
 function isIcsFile(file: TFile | null): file is TFile {
   return file?.extension.toLowerCase() === "ics";
+}
+
+function isViewerState(state: unknown): state is IcsCalendarViewerState {
+  if (!state || typeof state !== "object") return false;
+  const candidate = state as IcsCalendarViewerState;
+  return (candidate.mode === undefined || candidate.mode === "events" || candidate.mode === "source")
+    && (candidate.groupMode === undefined || candidate.groupMode === "date" || candidate.groupMode === "type")
+    && (candidate.query === undefined || typeof candidate.query === "string")
+    && (candidate.startDate === undefined || typeof candidate.startDate === "string")
+    && (candidate.endDate === undefined || typeof candidate.endDate === "string");
 }
 
 function getErrorMessage(error: unknown): string {

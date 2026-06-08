@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Persisted viewer mode, grouping, and filters in Obsidian view state for restored event/source tabs.
+
 ## 0.1.0
 
 - Initial read-only `.ics` file viewer.
