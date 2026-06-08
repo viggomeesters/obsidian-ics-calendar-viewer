@@ -299,14 +299,16 @@
 }
 
 .ics-calendar-viewer__fields {
-  display: grid;
-  grid-template-columns: minmax(92px, 140px) minmax(0, 1fr);
-  gap: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 14px;
 }
 
 .ics-calendar-viewer__field {
-  display: contents;
+  display: grid;
+  grid-template-columns: minmax(92px, 140px) minmax(0, 1fr);
+  gap: 12px;
 }
 
 .ics-calendar-viewer__field-label {
@@ -405,6 +407,11 @@
   }
 
   .ics-calendar-viewer__fields {
+    gap: 10px;
+  }
+
+  .ics-calendar-viewer__field {
     grid-template-columns: 1fr;
+    gap: 2px;
   }
 }

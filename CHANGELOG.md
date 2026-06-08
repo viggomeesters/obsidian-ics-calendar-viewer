@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2
+
+- Added the repository MIT license file.
+- Removed redundant component literal types from the ICS parser.
+- Replaced `display: contents` in the detail field layout for older Obsidian compatibility.
+- Added a GitHub Actions release workflow with build provenance attestations for release assets.
+
 ## 0.1.1
 
 - Persisted viewer mode, grouping, and filters in Obsidian view state for restored event/source tabs.

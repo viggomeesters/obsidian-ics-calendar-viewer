@@ -1,7 +1,7 @@
 export const ICS_PARSE_COMPONENT_CAP = 5000;
 export const ICS_RENDER_ITEM_CAP = 1000;
 
-export type IcsComponentName = "VCALENDAR" | "VEVENT" | "VTODO" | "VTIMEZONE" | string;
+export type IcsComponentName = string;
 export type IcsItemType = "VEVENT" | "VTODO";
 export type DatePrecision = "date" | "date-time" | "unknown";
 

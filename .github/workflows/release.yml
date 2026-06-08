@@ -1,0 +1,77 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+      - "[0-9]*.[0-9]*.[0-9]*"
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    name: Build, release, and attest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Test
+        run: npm test
+
+      - name: Check manifest
+        run: |
+          node -e "const m=require('./manifest.json'); if (m.id !== 'ics-calendar-viewer') throw new Error(m.id); if (/obsidian/i.test(m.description)) throw new Error(m.description); if (m.version !== process.env.GITHUB_REF_NAME.replace(/^v/, '')) throw new Error(`${m.version} !== ${process.env.GITHUB_REF_NAME}`)"
+
+      - name: Check forbidden runtime patterns
+        run: |
+          if grep -R -nE 'fetch\(|XMLHttpRequest|WebSocket|navigator\.clipboard|child_process|spawn\(|exec\(|write\(|modify\(|eval\(|new Function|!important' src styles.css; then
+            exit 1
+          fi
+
+      - name: Create release notes
+        run: |
+          {
+            echo "Release ${GITHUB_REF_NAME}"
+            echo
+            echo "- Adds the MIT LICENSE file."
+            echo "- Fixes source warnings for ICS component typing."
+            echo "- Replaces CSS display: contents for older Obsidian compatibility."
+            echo "- Publishes runtime assets with GitHub artifact attestations."
+          } > release-notes.md
+
+      - name: Create GitHub release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" main.js manifest.json styles.css \
+            --title "${GITHUB_REF_NAME}" \
+            --notes-file release-notes.md \
+            --verify-tag
+
+      - name: Attest release assets
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |
+            main.js
+            manifest.json
+            styles.css
