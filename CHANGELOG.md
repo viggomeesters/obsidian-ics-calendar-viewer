@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Reissued the review-fix release after adding the GitHub Actions release workflow.
+
 ## 0.1.2
 
 - Added the repository MIT license file.
