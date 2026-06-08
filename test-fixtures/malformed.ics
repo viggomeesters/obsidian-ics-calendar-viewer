@@ -1,0 +1,9 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ICS Calendar Viewer//Malformed//EN
+THIS LINE HAS NO COLON
+BEGIN:VEVENT
+UID:malformed-event@example.test
+DTSTART:NOT-A-DATE
+SUMMARY:Malformed date event
+END:VEVENT

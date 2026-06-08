@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ICS Calendar Viewer//Single Event//EN
+BEGIN:VEVENT
+UID:single-event@example.test
+DTSTAMP:20260607T180000Z
+DTSTART:20260609T090000Z
+DTEND:20260609T100000Z
+SUMMARY:Project check-in
+DESCRIPTION:Single event fixture.
+LOCATION:Room 1
+ORGANIZER:mailto:organizer@example.test
+ATTENDEE:mailto:attendee@example.test
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
