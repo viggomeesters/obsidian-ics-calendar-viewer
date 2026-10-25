@@ -1,6 +1,6 @@
 {
   "name": "obsidian-ics-calendar-viewer",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Read-only local .ics calendar file inspection viewer.",
   "license": "MIT",
   "author": "Viggo Meesters",
@@ -14,7 +14,7 @@
   "homepage": "https://github.com/viggomeesters/obsidian-ics-calendar-viewer#readme",
   "type": "module",
   "scripts": {
-    "build": "NODE_ENV=production node esbuild.config.mjs",
+    "build": "node esbuild.config.mjs production",
     "dev": "node esbuild.config.mjs",
     "test": "node scripts/smoke-test.mjs"
   },

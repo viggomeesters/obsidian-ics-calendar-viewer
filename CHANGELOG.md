@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5 - 2026-10-25
+
+- Cross-platform production build.
+- Plugin-version to min-app-version mapping.
+
+
 ## 0.1.4
 
 - Added manual release workflow dispatch fallback for GitHub artifact attestations.
