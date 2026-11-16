@@ -1,4 +1,6 @@
 .ics-calendar-viewer {
+  container-name: ics-calendar-viewer;
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -385,6 +387,32 @@
   line-height: 1.45;
 }
 
+@container ics-calendar-viewer (max-width: 720px) {
+  .ics-calendar-viewer__header {
+    flex-direction: column;
+  }
+
+  .ics-calendar-viewer__summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ics-calendar-viewer__body {
+    grid-template-columns: 1fr;
+  }
+
+  .ics-calendar-viewer__list {
+    max-height: 42vh;
+  }
+
+  .ics-calendar-viewer__fields {
+    gap: 10px;
+  }
+
+  .ics-calendar-viewer__field {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
 @media (max-width: 720px) {
   .ics-calendar-viewer {
     padding: 12px;
